@@ -50,3 +50,14 @@ python main.py execute-command
 ```
 
 
+
+### 8. Updating from requirements
+To update libraries from requirements.txt type
+```
+pip install -r requirements.txt
+```
+To update requirements.txt 
+```
+pip freeze > requirements.txt
+```
+

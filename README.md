@@ -61,3 +61,14 @@ To update requirements.txt
 pip freeze > requirements.txt
 ```
 
+### 9. Run FastApi
+
+To run fastApi you need to have hypercorn server installed
+```
+pip install "hypercorn[trio]"
+```
+Run fastApi using hypercorn
+```
+hypercorn Api/FileAPI:app --bind [ip_addres]:[port]
+
+```

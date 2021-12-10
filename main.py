@@ -93,7 +93,7 @@ def get_logs_list(host):
 
 @main.command()
 @click.option('--host', help='Enter host address', required=True)
-@click.option('--names', default=[], prompt="Enter file name >", help='Enter pcaps files names', multiple=True)
+@click.option('--names',  default=[],  prompt="Enter file name >", help='Enter pcaps files names', multiple=True)
 def get_logs(host, names):
     """ Get Logs from agent """
     try:

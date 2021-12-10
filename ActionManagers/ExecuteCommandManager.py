@@ -3,11 +3,8 @@ import HttpClient.HttpClient as http_client
 
 
 def execute_command(host_address,execution_command):
-    command = command_model.Command(action=command_model.execute_command,
-                                    parameters= execution_command )
-    http_client.send_command(host_address,command)
-
-def get_configuration(host_address):
-    command = command_model.Command(action=command_model.get_configuration)
-    http_client.send_command(host_address,command)
-    #TODO rezultat powinno wyświetlić
+    command = command_model.Command()
+    command.set_action(command_model.execute_command)
+    command.set_parameters(execution_command)
+    url = host_address + "/command"
+    http_client.send_command(url,command)

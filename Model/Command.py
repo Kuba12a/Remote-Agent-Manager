@@ -1,12 +1,13 @@
 from pydantic import BaseModel
+from typing import Optional
 import datetime
 
-#actions
+# actions
 get_configuration = "get_configuration"
-#get_captures_list = "get_captures_list"
-#get_captures = "get_captures"
-#get_logs_list = "get_logs_list"
-#get_logs = "get_logs"
+# get_captures_list = "get_captures_list"
+# get_captures = "get_captures"
+# get_logs_list = "get_logs_list"
+# get_logs = "get_logs"
 capture_traffic = "capture_traffic"
 execute_command = "execute_command"
 
@@ -22,30 +23,11 @@ parameter: parameters for commands - default: ""
         .
         .
 '''
+
+
 class Command(BaseModel):
-        action: str 
-        names: str 
-        time: int 
-        parameters: str 
-
-        def __init__(self, action = "n" , names = "n", time=30, parameters="n"):
-            self.__action =action
-            self.__names = names
-            self.__time = time
-            self.__parameters = parameters
+    action: str
+    time: Optional[int] = None
+    parameters: Optional[str] = None
 
 
-        def set_action(self, x):
-                self.__action= x
-        def set_time(self, x):
-                self.__time = x
-        def set_parameters(self, x):
-                self.__parameters = x
-        def set_names(self, x):
-                self.__names = x
-
-
-
-
-        
-        

@@ -17,4 +17,3 @@ def get_logs(host_address,names):
     url = host_address + "/file"
     for n in names:
         http_client.get_file(url,n)
-    

@@ -22,7 +22,7 @@ def capture_traffic(host_address, bpf_filter, time):
 
 def get_captures_list(host_address):
     url = host_address
-    result = http_client.get_filenames(url)
+    result = http_client.get_captures(url)
     pprint(result)
 
     

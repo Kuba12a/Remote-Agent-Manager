@@ -8,7 +8,7 @@ def get_logs_list(host_address):
 
     #command = command_model.Command(action=command_model.get_logs_list)
     url = host_address
-    result = http_client.get_filenames(url)
+    result = http_client.get_logs(url)
     pprint.pprint(result)
 
 

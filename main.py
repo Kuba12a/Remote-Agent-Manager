@@ -16,7 +16,7 @@ def main():
 def get_configuration(host):
     """ Get web configuration from remote agent """
     try:
-        pcap_manager.get_cocnfiguration(host)
+        pcap_manager.get_configuration(host)
     except Exception as ex:
         template = "An exception of type {0} occurred. Arguments:\n{1!r}"
         message = template.format(type(ex).__name__, ex.args)

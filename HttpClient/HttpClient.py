@@ -6,13 +6,16 @@ import Model.Name as name_model
 
 protocol_prefix = "http://"
 get_file_suffix = "/file"
+command_suffix = "/command"
+captures_suffix ="/filenames/pcapng"
+logs_suffix = "/filenames/evtx"
 
 def send_command(URL, command : Command):
 
     data = json.dumps(command.__dict__)
     status_code = None
     try:
-        response = requests.post(url=URL, data=data)
+        response = requests.post(url=protocol_prefix+URL+command_suffix, data=data)
         status_code = response.status_code
     except Exception as ex:
         template = "An exception of type {0} occurred. Arguments:\n{1!r}"
@@ -22,10 +25,24 @@ def send_command(URL, command : Command):
 
 
 
-def get_filenames(URL):
+def get_captures(URL):
     status_code = None
     try:
-        response = requests.get(url=URL)
+        response = requests.get(url=protocol_prefix+URL+captures_suffix)
+        status_code = response.status_code
+        result = response.json()
+    except Exception as ex:
+        template = "An exception of type {0} occurred. Arguments:\n{1!r}"
+        message = template.format(type(ex).__name__, ex.args)
+        print(message)
+    # extracting data in json format
+
+    return result
+
+def get_logs(URL):
+    status_code = None
+    try:
+        response = requests.get(url=protocol_prefix+URL+logs_suffix)
         status_code = response.status_code
         result = response.json()
     except Exception as ex:
